@@ -10,7 +10,7 @@ An open source Material Design file manager **supporting AVIF images and slidesh
 
 To start slideshow, in the folder view, click the three dots on the top right corner and select slideshow.
 
-[Get it on GitHub](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/Release/MaterialFilesAvif.apk)
+[Get it on GitHub](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/avif-slideshow/MaterialFilesAvifSlide.apk)
 
 [Help translation on Transifex](https://www.transifex.com/zhanghai/MaterialFiles/) ([Search Android & GNOME translations](https://translations.zhanghai.me/), [Microsoft language resources](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources), [MIME type translations](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/tree/master/po))
 

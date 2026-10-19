@@ -8,7 +8,7 @@
 
 在文件夹视图，点击右上角三个点，幻灯片播放即可。
 
-[在GitHub上下载](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/Release/MaterialFilesAvif.apk)
+[在GitHub上下载](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/avif-slideshow/MaterialFilesAvifSlide.apk)
 
 [在 Transifex 上帮助翻译](https://www.transifex.com/zhanghai/MaterialFiles/)（[搜索 Android 和 GNOME 的翻译](https://translations.zhanghai.me/)、[微软语言资源](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources)、[MIME 类型翻译](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/tree/master/po)）
 

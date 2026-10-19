@@ -1,8 +1,12 @@
-# Material Files (AVIF)
+# Material Files (AVIF+Slideshow)
 
 [![Android CI 状态](https://github.com/zhanghai/MaterialFiles/workflows/Android%20CI/badge.svg)](https://github.com/zhanghai/MaterialFiles/actions) [![GitHub 发行版](https://img.shields.io/github/v/release/zhanghai/MaterialFiles)](https://github.com/zhanghai/MaterialFiles/releases) [![许可证](https://img.shields.io/github/license/zhanghai/MaterialFiles?color=blue)](LICENSE)
 
-一个开源的 Material Design 文件管理器（支持AVIF图片格式），适用于 Android 7.0+。
+## 改版说明
+
+一个开源的 Material Design 文件管理器（支持AVIF图片和带文件夹穿透的幻灯片播放），适用于 Android 7.0+。
+
+在文件夹视图，点击右上角三个点，幻灯片播放即可。
 
 [在GitHub上下载](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/Release/MaterialFilesAvif.apk)
 

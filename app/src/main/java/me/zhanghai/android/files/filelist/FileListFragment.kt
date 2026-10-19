@@ -131,6 +131,7 @@ import me.zhanghai.android.files.util.valueCompat
 import me.zhanghai.android.files.util.viewModels
 import me.zhanghai.android.files.util.withChooser
 import me.zhanghai.android.files.viewer.image.ImageViewerActivity
+import me.zhanghai.android.files.viewer.slideshow.SlideshowSettingsDialogFragment
 
 class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.Listener,
     ConfirmReplaceFileDialogFragment.Listener, OpenApkDialogFragment.Listener,
@@ -498,6 +499,10 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             }
             R.id.action_new_task -> {
                 newTask()
+                true
+            }
+            R.id.action_slideshow -> {
+                SlideshowSettingsDialogFragment.show(this, currentPath)
                 true
             }
             R.id.action_navigate_up -> {

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 Jingge Chen <mariocanfly@hotmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/slideshow_settings_interval" />
+
+    <EditText
+        android:id="@+id/interval_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:singleLine="true"
+        android:text="5"
+        tools:ignore="LabelFor,TextFields" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/slideshow_settings_transition_effect" />
+
+    <RadioGroup
+        android:id="@+id/transition_effect_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/transition_effect_fade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/slideshow_transition_effect_fade" />
+
+        <RadioButton
+            android:id="@+id/transition_effect_slide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/slideshow_transition_effect_slide" />
+
+        <RadioButton
+            android:id="@+id/transition_effect_none"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="@string/slideshow_transition_effect_none" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/random_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/slideshow_settings_random" />
+
+    <CheckBox
+        android:id="@+id/loop_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/slideshow_settings_loop" />
+</LinearLayout>

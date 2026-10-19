@@ -296,6 +296,18 @@
     <string name="file_list_action_sort_directories_first">Folders first</string>
     <string name="file_list_action_view_sort_path_specific">Only for this folder</string>
     <string name="file_list_action_new_task">New window</string>
+    <string name="file_list_action_slideshow">Slideshow</string>
+    <string name="slideshow_settings_interval">Interval (seconds)</string>
+    <string name="slideshow_settings_transition_effect">Transition effect</string>
+    <string name="slideshow_transition_effect_fade">Fade</string>
+    <string name="slideshow_transition_effect_slide">Slide</string>
+    <string name="slideshow_transition_effect_none">None</string>
+    <string name="slideshow_settings_random">Random</string>
+    <string name="slideshow_settings_loop">Loop</string>
+    <string name="slideshow_play">Play</string>
+    <string name="slideshow_cancel">Cancel</string>
+    <string name="slideshow_exit">Exit</string>
+    <string name="slideshow_no_image_found">No playable image found</string>
     <string name="file_list_action_navigate_up">Go up</string>
     <string name="file_list_action_navigate_to">Go to</string>
     <string name="file_list_navigate_to_title" translatable="false">@string/file_list_action_navigate_to</string>

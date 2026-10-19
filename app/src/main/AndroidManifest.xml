@@ -351,6 +351,12 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="me.zhanghai.android.files.viewer.slideshow.SlideshowActivity"
+            android:exported="false"
+            android:label="@string/file_list_action_slideshow"
+            android:theme="@style/Theme.MaterialFiles.Immersive" />
+
         <service
             android:name="me.zhanghai.android.files.filejob.FileJobService"
             android:foregroundServiceType="specialUse">

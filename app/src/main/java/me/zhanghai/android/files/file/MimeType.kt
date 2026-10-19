@@ -55,6 +55,7 @@ value class MimeType(val value: String) : Parcelable {
         val APK = "application/vnd.android.package-archive".asMimeType()
         val DIRECTORY = DocumentsContract.Document.MIME_TYPE_DIR.asMimeType()
         val IMAGE_ANY = "image/*".asMimeType()
+        val IMAGE_AVIF = "image/avif".asMimeType()
         val IMAGE_GIF = "image/gif".asMimeType()
         val IMAGE_SVG_XML = "image/svg+xml".asMimeType()
         val PDF = "application/pdf".asMimeType()

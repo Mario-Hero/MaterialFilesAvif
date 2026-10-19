@@ -10,6 +10,7 @@ import android.os.AsyncTask
 import android.util.Size
 import androidx.exifinterface.media.ExifInterface
 import com.caverock.androidsvg.SVG
+import com.radzivon.bartoshyk.avif.coder.HeifCoder
 import java8.nio.file.Path
 import me.zhanghai.android.files.file.MimeType
 import me.zhanghai.android.files.fileproperties.PathObserverLiveData
@@ -60,6 +61,11 @@ class ImageInfoLiveData(
                             }
                         }
                         ImageInfo(dimensions, null)
+                    }
+                    MimeType.IMAGE_AVIF -> {
+                        // BitmapFactory can only decode AVIF bounds from Android 12.
+                        val bytes = path.newInputStream().source().buffer().use { it.readByteArray() }
+                        ImageInfo(HeifCoder().getSize(bytes), null)
                     }
                     else -> {
                         val bitmapOptions = BitmapFactory.Options()

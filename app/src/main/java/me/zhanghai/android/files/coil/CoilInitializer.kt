@@ -23,6 +23,9 @@ fun initializeCoil() {
                 add(AppIconPackageNameFetcherFactory(application))
                 add(PathAttributesKeyer())
                 add(PathAttributesFetcher.Factory(application))
+                // Decoders added earlier take precedence, and this one must be consulted before the
+                // ImageDecoderDecoder, which would otherwise fail to decode AVIF below Android 12.
+                add(HeifDecoder.Factory())
                 add(
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                         ImageDecoderDecoder.Factory()

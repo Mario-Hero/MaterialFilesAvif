@@ -139,7 +139,9 @@ class ImageViewerAdapter(
     private val ImageInfo.shouldUseLargeImageView: Boolean
         get() {
             // See BitmapFactory.cpp encodedFormatToString()
-            if (mimeType == MimeType.IMAGE_GIF) {
+            // SubsamplingScaleImageView can only decode formats supported by BitmapRegionDecoder,
+            // which doesn't include AVIF.
+            if (mimeType == MimeType.IMAGE_GIF || mimeType == MimeType.IMAGE_AVIF) {
                 return false
             }
             if (width <= 0 || height <= 0) {

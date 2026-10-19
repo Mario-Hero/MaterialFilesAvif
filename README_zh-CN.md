@@ -1,10 +1,10 @@
-# Material Files
+# Material Files (AVIF)
 
 [![Android CI 状态](https://github.com/zhanghai/MaterialFiles/workflows/Android%20CI/badge.svg)](https://github.com/zhanghai/MaterialFiles/actions) [![GitHub 发行版](https://img.shields.io/github/v/release/zhanghai/MaterialFiles)](https://github.com/zhanghai/MaterialFiles/releases) [![许可证](https://img.shields.io/github/license/zhanghai/MaterialFiles?color=blue)](LICENSE)
 
-一个开源的 Material Design 文件管理器，适用于 Android 5.0+。
+一个开源的 Material Design 文件管理器（支持AVIF图片格式），适用于 Android 7.0+。
 
-[<img alt="下载应用，请到 Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" width="240">](https://play.google.com/store/apps/details?id=me.zhanghai.android.files) [<img alt="下载应用，请到 F-Droid" src="https://fdroid.gitlab.io/artwork/badge/get-it-on-zh-cn.png" width="240">](https://f-droid.org/packages/me.zhanghai.android.files) [<img alt="下载应用，请到 GitHub" src="https://raw.githubusercontent.com/Kunzisoft/Github-badge/main/get-it-on-github.png" width="240">](https://github.com/zhanghai/MaterialFiles/releases/latest/download/app-release-universal.apk)
+[在GitHub上下载](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/Release/MaterialFilesAvif.apk)
 
 [在 Transifex 上帮助翻译](https://www.transifex.com/zhanghai/MaterialFiles/)（[搜索 Android 和 GNOME 的翻译](https://translations.zhanghai.me/)、[微软语言资源](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources)、[MIME 类型翻译](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/tree/master/po)）
 
@@ -65,16 +65,16 @@
 ## 许可证
 
     Copyright (C) 2018 Hai Zhang
-
+    
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
-
+    
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-
+    
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.

@@ -22,26 +22,22 @@ import androidx.viewpager2.widget.ViewPager2
 import dev.chrisbanes.insetter.applySystemWindowInsetsToPadding
 import java8.nio.file.Path
 import kotlinx.parcelize.Parcelize
-import kotlinx.parcelize.WriteWith
 import me.zhanghai.android.files.R
 import me.zhanghai.android.files.databinding.ImageViewerFragmentBinding
 import me.zhanghai.android.files.file.fileProviderUri
 import me.zhanghai.android.files.provider.common.delete
 import me.zhanghai.android.files.ui.DepthPageTransformer
 import me.zhanghai.android.files.util.ParcelableArgs
-import me.zhanghai.android.files.util.ParcelableListParceler
-import me.zhanghai.android.files.util.ParcelableState
 import me.zhanghai.android.files.util.args
 import me.zhanghai.android.files.util.createSendImageIntent
 import me.zhanghai.android.files.util.extraPath
 import me.zhanghai.android.files.util.extraPathList
 import me.zhanghai.android.files.util.finish
-import me.zhanghai.android.files.util.getState
 import me.zhanghai.android.files.util.mediumAnimTime
-import me.zhanghai.android.files.util.putState
 import me.zhanghai.android.files.util.showToast
 import me.zhanghai.android.files.util.startActivitySafe
 import me.zhanghai.android.files.util.withChooser
+import me.zhanghai.android.files.viewer.slideshow.SlideshowSettingsDialogFragment
 import me.zhanghai.android.systemuihelper.SystemUiHelper
 import java.io.IOException
 
@@ -60,7 +56,10 @@ class ImageViewerFragment : Fragment(), ConfirmDeleteDialogFragment.Listener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        paths = (savedInstanceState?.getState<State>()?.paths ?: argsPaths).toMutableList()
+        // Don't save the paths in instance state: the same list is already kept in the
+        // fragment arguments (and restored automatically), and saving it again can exceed
+        // the 1 MB Binder transaction limit for large directories and crash the app.
+        paths = argsPaths.toMutableList()
 
         setHasOptionsMenu(true)
     }
@@ -131,12 +130,6 @@ class ImageViewerFragment : Fragment(), ConfirmDeleteDialogFragment.Listener {
         updateTitle()
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-        outState.putState(State(paths))
-    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 
@@ -153,11 +146,21 @@ class ImageViewerFragment : Fragment(), ConfirmDeleteDialogFragment.Listener {
                 share()
                 true
             }
+            R.id.action_slideshow -> {
+                showSlideshow()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
 
     private fun confirmDelete() {
         ConfirmDeleteDialogFragment.show(currentPath, this)
+    }
+
+    /** 从当前图片所在目录启动幻灯片播放，非随机模式时从当前图片开始。 */
+    private fun showSlideshow() {
+        val directory = currentPath.parent ?: return
+        SlideshowSettingsDialogFragment.show(this, directory, currentPath)
     }
 
     override fun delete(path: Path) {
@@ -211,7 +214,4 @@ class ImageViewerFragment : Fragment(), ConfirmDeleteDialogFragment.Listener {
 
     @Parcelize
     class Args(val intent: Intent, val position: Int) : ParcelableArgs
-
-    @Parcelize
-    private class State(val paths: @WriteWith<ParcelableListParceler> List<Path>) : ParcelableState
 }

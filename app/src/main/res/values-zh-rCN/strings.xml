@@ -272,10 +272,12 @@
     <string name="slideshow_transition_effect_none">无</string>
     <string name="slideshow_settings_random">随机播放</string>
     <string name="slideshow_settings_loop">循环播放</string>
+    <string name="slideshow_settings_skip_size_mismatch">跳过长宽与屏幕比例不适配的图片</string>
     <string name="slideshow_play">播放</string>
     <string name="slideshow_cancel">取消</string>
     <string name="slideshow_exit">退出</string>
     <string name="slideshow_no_image_found">没有找到可播放的图片</string>
+    <string name="shortcut_resolve_failed">无法解析快捷方式</string>
     <string name="file_list_action_navigate_up">向上</string>
     <string name="file_list_action_navigate_to">转到</string>
     <string name="file_list_action_show_hidden_files">显示隐藏文件</string>

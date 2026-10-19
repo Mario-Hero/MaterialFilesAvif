@@ -304,10 +304,12 @@
     <string name="slideshow_transition_effect_none">None</string>
     <string name="slideshow_settings_random">Random</string>
     <string name="slideshow_settings_loop">Loop</string>
+    <string name="slideshow_settings_skip_size_mismatch">Skip images whose orientation doesn\'t match the screen</string>
     <string name="slideshow_play">Play</string>
     <string name="slideshow_cancel">Cancel</string>
     <string name="slideshow_exit">Exit</string>
     <string name="slideshow_no_image_found">No playable image found</string>
+    <string name="shortcut_resolve_failed">Cannot resolve shortcut</string>
     <string name="file_list_action_navigate_up">Go up</string>
     <string name="file_list_action_navigate_to">Go to</string>
     <string name="file_list_navigate_to_title" translatable="false">@string/file_list_action_navigate_to</string>

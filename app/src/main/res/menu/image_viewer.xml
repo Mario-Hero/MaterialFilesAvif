@@ -20,4 +20,10 @@
         android:orderInCategory="100"
         android:title="@string/share"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_slideshow"
+        android:orderInCategory="100"
+        android:title="@string/file_list_action_slideshow"
+        app:showAsAction="never" />
 </menu>

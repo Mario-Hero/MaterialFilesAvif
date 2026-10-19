@@ -22,6 +22,7 @@ object SlideshowSettings {
     private const val KEY_TRANSITION_EFFECT = "transition_effect"
     private const val KEY_RANDOM = "random"
     private const val KEY_LOOP = "loop"
+    private const val KEY_SKIP_SIZE_MISMATCH = "skip_size_mismatch"
 
     private fun getPreferences(context: Context): SharedPreferences =
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -52,5 +53,12 @@ object SlideshowSettings {
 
     fun putLoop(context: Context, value: Boolean) {
         getPreferences(context).edit { putBoolean(KEY_LOOP, value) }
+    }
+
+    fun isSkipSizeMismatch(context: Context): Boolean =
+        getPreferences(context).getBoolean(KEY_SKIP_SIZE_MISMATCH, false)
+
+    fun putSkipSizeMismatch(context: Context, value: Boolean) {
+        getPreferences(context).edit { putBoolean(KEY_SKIP_SIZE_MISMATCH, value) }
     }
 }

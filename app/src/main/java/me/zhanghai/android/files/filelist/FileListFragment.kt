@@ -45,6 +45,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -52,6 +53,9 @@ import com.leinardi.android.speeddial.SpeedDialView
 import java8.nio.file.Path
 import java8.nio.file.Paths
 import kotlin.math.roundToInt
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.parcelize.Parcelize
 import me.zhanghai.android.files.R
 import me.zhanghai.android.files.app.application
@@ -66,11 +70,13 @@ import me.zhanghai.android.files.databinding.FileListFragmentIncludeBinding
 import me.zhanghai.android.files.databinding.FileListFragmentSpeedDialIncludeBinding
 import me.zhanghai.android.files.file.FileItem
 import me.zhanghai.android.files.file.MimeType
+import me.zhanghai.android.files.file.WindowsShortcut
 import me.zhanghai.android.files.file.asMimeTypeOrNull
 import me.zhanghai.android.files.file.extension
 import me.zhanghai.android.files.file.fileProviderUri
 import me.zhanghai.android.files.file.isApk
 import me.zhanghai.android.files.file.isImage
+import me.zhanghai.android.files.file.loadFileItem
 import me.zhanghai.android.files.filejob.FileJobService
 import me.zhanghai.android.files.filelist.FileSortOptions.By
 import me.zhanghai.android.files.filelist.FileSortOptions.Order
@@ -1216,6 +1222,10 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             }
             return
         }
+        if (file.mimeType == MimeType.SHORTCUT) {
+            openShortcut(file)
+            return
+        }
         if (file.mimeType.isApk) {
             openApk(file)
             return
@@ -1225,6 +1235,31 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             return
         }
         openFileWithIntent(file, false)
+    }
+
+    /** 解析 Windows 快捷方式指向的目标，然后像打开普通文件/文件夹一样打开它。 */
+    private fun openShortcut(file: FileItem) {
+        val path = file.path
+        lifecycleScope.launch {
+            val targetFile = withContext(Dispatchers.IO) {
+                val targetPath = WindowsShortcut.resolve(path) ?: return@withContext null
+                try {
+                    targetPath.loadFileItem()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    null
+                }
+            }
+            if (targetFile == null) {
+                showToast(getString(R.string.shortcut_resolve_failed))
+                return@launch
+            }
+            when {
+                targetFile.isListable -> navigateTo(targetFile.listablePath)
+                targetFile.mimeType.isApk -> openApk(targetFile)
+                else -> openFileWithIntent(targetFile, false)
+            }
+        }
     }
 
     private fun openApk(file: FileItem) {

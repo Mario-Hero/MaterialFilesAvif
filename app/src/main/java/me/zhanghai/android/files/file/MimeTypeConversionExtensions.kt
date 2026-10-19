@@ -33,6 +33,7 @@ private val extensionToMimeTypeOverrideMap = mapOf(
     "csv" to "text/csv", // Was "text/comma-separated-values"
     "sh" to "application/x-sh", // Was "text/x-sh"
     // Addition
+    "lnk" to "application/x-ms-shortcut", // Windows 快捷方式
     "bz" to "application/x-bzip",
     "bz2" to "application/x-bzip2",
     "z" to "application/x-compress",

@@ -1,4 +1,4 @@
-# Material Files (AVIF+Slideshow)
+# Material Files (AVIF+Slideshow+Lnk)
 
 [本文中文版](README_zh-CN.md)
 
@@ -6,11 +6,13 @@
 
 ## Change Description
 
-An open source Material Design file manager **supporting AVIF images and slideshow playback with folder traversal**, for Android 7.0+.
+An open source Material Design file manager **supporting AVIF images，slideshow playback with folder traversal and Windows shortcut files**, for Android 7.0+.
 
-To start slideshow, in the folder view, click the three dots on the top right corner and select slideshow.
+In the folder or image view, click the three dots in the top right corner to play the slides. It supports both random and non-random playback, and allows skipping images whose width and height do not match the screen's width and height, specifically skipping wide images in portrait mode.
 
-[Get it on GitHub](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/avif-slideshow/MaterialFilesAvifSlide.apk)
+In the Windows shared directory, it supports opening Windows shortcut files(.lnk), handling them in the same way as files and folders, and also supports slide show playback. However, shortcuts do not support accessing files across shared paths.
+
+[Get it on GitHub](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/avif-slideshow-lnk/MaterialFilesAvifSlideLnk.apk)
 
 [Help translation on Transifex](https://www.transifex.com/zhanghai/MaterialFiles/) ([Search Android & GNOME translations](https://translations.zhanghai.me/), [Microsoft language resources](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources), [MIME type translations](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/tree/master/po))
 

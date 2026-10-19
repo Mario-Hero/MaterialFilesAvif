@@ -1,14 +1,16 @@
-# Material Files (AVIF+Slideshow)
+# Material Files (AVIF+Slideshow+Lnk)
 
 [![Android CI 状态](https://github.com/zhanghai/MaterialFiles/workflows/Android%20CI/badge.svg)](https://github.com/zhanghai/MaterialFiles/actions) [![GitHub 发行版](https://img.shields.io/github/v/release/zhanghai/MaterialFiles)](https://github.com/zhanghai/MaterialFiles/releases) [![许可证](https://img.shields.io/github/license/zhanghai/MaterialFiles?color=blue)](LICENSE)
 
 ## 改版说明
 
-一个开源的 Material Design 文件管理器（支持AVIF图片和带文件夹穿透的幻灯片播放），适用于 Android 7.0+。
+一个开源的 Material Design 文件管理器（新增支持AVIF图片、带文件夹穿透的幻灯片播放、Windows快捷方式），适用于 Android 7.0+。
 
-在文件夹视图，点击右上角三个点，幻灯片播放即可。
+在文件夹或图片视图，点击右上角三个点，即可幻灯片播放。支持随机和非随机播放、支持文件夹穿透、支持跳过长宽与屏幕宽高不适配的图片，即竖屏下跳过宽的图。
 
-[在GitHub上下载](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/avif-slideshow/MaterialFilesAvifSlide.apk)
+在Windows共享目录中，支持打开Windows快捷方式文件，与文件和文件夹做相同处理，幻灯片播放也支持。但是快捷方式不支持访问跨共享路径的文件。
+
+[在GitHub上下载](https://github.com/Mario-Hero/MaterialFilesAvif/releases/download/avif-slideshow-lnk/MaterialFilesAvifSlideLnk.apk)
 
 [在 Transifex 上帮助翻译](https://www.transifex.com/zhanghai/MaterialFiles/)（[搜索 Android 和 GNOME 的翻译](https://translations.zhanghai.me/)、[微软语言资源](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources)、[MIME 类型翻译](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/tree/master/po)）
 

@@ -74,4 +74,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/slideshow_settings_loop" />
+
+    <CheckBox
+        android:id="@+id/skip_size_mismatch_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/slideshow_settings_skip_size_mismatch" />
 </LinearLayout>

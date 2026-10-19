@@ -41,6 +41,7 @@ class SlideshowSettingsDialogFragment : AppCompatDialogFragment() {
         binding.transitionEffectGroup.check(checkedTransitionEffectId)
         binding.randomCheck.isChecked = SlideshowSettings.isRandom(context)
         binding.loopCheck.isChecked = SlideshowSettings.isLoop(context)
+        binding.skipSizeMismatchCheck.isChecked = SlideshowSettings.isSkipSizeMismatch(context)
         // 任何修改都立即保存（先设置初始值，再注册监听，避免重复写入）
         binding.intervalEdit.doAfterTextChanged { text ->
             text?.toString()?.toIntOrNull()
@@ -55,6 +56,9 @@ class SlideshowSettingsDialogFragment : AppCompatDialogFragment() {
         }
         binding.loopCheck.setOnCheckedChangeListener { _, isChecked ->
             SlideshowSettings.putLoop(context, isChecked)
+        }
+        binding.skipSizeMismatchCheck.setOnCheckedChangeListener { _, isChecked ->
+            SlideshowSettings.putSkipSizeMismatch(context, isChecked)
         }
         return MaterialAlertDialogBuilder(context)
             .setTitle(R.string.file_list_action_slideshow)
@@ -85,16 +89,28 @@ class SlideshowSettingsDialogFragment : AppCompatDialogFragment() {
             .putExtra(SlideshowActivity.EXTRA_TRANSITION_EFFECT, transitionEffect)
             .putExtra(SlideshowActivity.EXTRA_RANDOM, binding.randomCheck.isChecked)
             .putExtra(SlideshowActivity.EXTRA_LOOP, binding.loopCheck.isChecked)
+            .putExtra(
+                SlideshowActivity.EXTRA_SKIP_SIZE_MISMATCH,
+                binding.skipSizeMismatchCheck.isChecked
+            )
         intent.extraPath = args.path
+        // 图片查看器入口会带上当前图片，非随机模式时从它开始播放
+        args.startImageUri?.let {
+            intent.putExtra(SlideshowActivity.EXTRA_START_PATH_URI, it)
+        }
         startActivitySafe(intent)
     }
 
     companion object {
-        fun show(fragment: Fragment, path: Path) {
-            SlideshowSettingsDialogFragment().putArgs(Args(path)).show(fragment)
+        fun show(fragment: Fragment, path: Path, startImage: Path? = null) {
+            SlideshowSettingsDialogFragment()
+                .putArgs(Args(path, startImage?.toUri()?.toString())).show(fragment)
         }
     }
 
     @Parcelize
-    class Args(val path: @WriteWith<ParcelableParceler> Path) : ParcelableArgs
+    class Args(
+        val path: @WriteWith<ParcelableParceler> Path,
+        val startImageUri: String?
+    ) : ParcelableArgs
 }
